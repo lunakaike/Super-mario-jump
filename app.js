@@ -67,14 +67,18 @@ botton_menu.addEventListener('click', function(){
     if(screen == "gameover"){
 
         screen = 'menu';
+        death = 'no'
         mario.src = "css/imagens/mario correndo.gif";
-        mario.style.width = `120px`;
-        
+        mario.style.bottom = '37px';
+        mario.style.width = '120px';
+        position_score.textContent = '';
+        score_gameover.textContent = '';
         floor_stop.style.zIndex = 0;
         screen_gameover.style.opacity = 0;
         screen_gameover.style.zIndex = 0;
         screen_menu.style.opacity = 1;
         screen_menu.style.zIndex = 9;
+        score = 0
         document.getElementsByClassName('botton_menu').disabled = true;
         document.getElementsByClassName('botton_menu').disabled = false;
 
@@ -82,8 +86,9 @@ botton_menu.addEventListener('click', function(){
 
 botton_reset.addEventListener('click', function(){
     if(screen == "gameover"){
+        
         floor_stop.style.zIndex = 0
-        pontuacaoA = 0;
+        score = 0;
         mario.style.bottom = `37px`;
         mario.style.width = `120px`
         mario.src = "css/imagens/mario correndo.gif";
@@ -108,6 +113,7 @@ play.addEventListener('click', function(){
     screen_menu.style.zIndex = 0
     document.getElementById('play').disabled = true;
     document.getElementById('play').disabled = false;
+    score = 0
     go();
 });
 
@@ -161,6 +167,12 @@ const loop = setInterval(() => {
             // ^================ DEATH DETECTION =============^//
 
 document.addEventListener("keydown", function(event) {
+    if (screen == 'game') {
+        jump();
+    }
+  });
+
+  document.addEventListener("click", function(event) {
     if (screen == 'game') {
         jump();
     }
