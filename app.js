@@ -39,8 +39,8 @@ let over = 'no';
 let start = 'no';
 let screen = 'menu';
 let score = 0;
-let death = 'no'
-let mario_air = 'no'
+let death = 'no';
+let mario_air = 'no';
 
 // ^============= VARIAVEIS ============^ //
 
@@ -119,7 +119,7 @@ play.addEventListener('click', function(){
 
 setInterval(() => {
 if(screen == "game" && death == 'no'){
-    score += 1;
+    score++;
     position_score.textContent = `score: ${score}`;
     score_gameover.textContent = `your score: ${score}`;
 }
@@ -167,13 +167,13 @@ const loop = setInterval(() => {
             // ^================ DEATH DETECTION =============^//
 
 document.addEventListener("keydown", function(event) {
-    if (screen == 'game') {
+    if (screen == 'game' && mario_air == 'no') {
         jump();
     }
   });
 
   document.addEventListener("click", function(event) {
-    if (screen == 'game') {
+    if (screen == 'game' && mario_air == 'no') {
         jump();
     }
   });

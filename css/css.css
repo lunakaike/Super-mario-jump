@@ -383,6 +383,10 @@ a{
 
     }
 
+    .canoani{
+        animation: cano 1.5s infinite linear;
+    }
+    
     .button_reset{
         transform: translate(-50%, -50%);
         left: 50vw;
